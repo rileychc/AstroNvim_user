@@ -3,8 +3,8 @@
 ---@type LazySpec
 return {
   "nvim-treesitter/nvim-treesitter",
-  opts = {
-    ensure_installed = {
+  opts = function(_, opts)
+    opts.ensure_installed = {
       "lua",
       "cpp",
       "c",
@@ -12,6 +12,6 @@ return {
       "sql",
       "vim",
       -- add more arguments for adding more treesitter parsers
-    },
-  },
+    }
+  end,
 }

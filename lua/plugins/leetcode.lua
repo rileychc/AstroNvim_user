@@ -5,40 +5,32 @@ return {
     "nvim-lua/plenary.nvim", -- required by telescope
     "MunifTanjim/nui.nvim",
   },
-  opts = {
-    ---@type string
-    arg = "lc",
-
-    ---@type lc.lang
-    lang = "cpp",
-
-    cn = { -- leetcode.cn
+  opts = function(_, opts)
+    opts.arg = "lc"
+    opts.lang = "cpp"
+    opts.cn = { -- leetcode.cn
       enabled = true, ---@type boolean
       translator = true, ---@type boolean
       translate_problems = true, ---@type boolean
-    },
-
-    ---@type lc.storage
-    storage = {
+    }
+    opts.storage = {
       -- home = vim.fn.stdpath("data") .. "/leetcode",
       home = "/Users/riley/Algorithm/Leetcode",
-
       -- cache = vim.fn.stdpath("cache") .. "/leetcode",
       cache = "/Users/riley/Algorithm/Leetcode/cache",
-    },
+    }
 
-    ---@type boolean
-    logging = true,
+    opts.logging = true
 
-    injector = { ---@type table<lc.lang, lc.inject>
+    opts.injector = {
       ["cpp"] = {
         before = { '#include "bits/stdc++.h"', "using namespace std;" },
         after = "",
       },
-    },
-    cache = {
+    }
+    opts.cache = {
       update_interval = 60 * 60 * 24 * 7, ---@type integer 7 days
-    },
+    }
 
     -- console = {
     -- 	open_on_runcode = true, ---@type boolean
@@ -61,13 +53,13 @@ return {
     -- 	},
     -- },
 
-    description = {
-      position = "right", ---@type lc.position
+    opts.description = {
+      position = "right",
 
-      width = "50%", ---@type lc.size
+      width = "50%",
 
-      show_stats = true, ---@type boolean
-    },
+      show_stats = true,
+    }
 
     -- hooks = {
     -- 	---@type fun()[]
@@ -77,7 +69,7 @@ return {
     -- 	LeetQuestionNew = {},
     -- },
 
-    keys = {
+    opts.keys = {
       toggle = { "q", "<Esc>" }, ---@type string|string[]
       confirm = { "<CR>" }, ---@type string|string[]
 
@@ -85,9 +77,10 @@ return {
       use_testcase = "U", ---@type string
       focus_testcases = "H", ---@type string
       focus_result = "L", ---@type string
-    },
+    }
 
     ---@type boolean
-    image_support = true,
-  },
+    opts.image_support = true
+    return opts
+  end,
 }

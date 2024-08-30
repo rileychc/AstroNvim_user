@@ -35,6 +35,8 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = true, -- sets vim.opt.wrap (自动换行)
+
+        -- mouse = "",  --关闭鼠标
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -76,6 +78,11 @@ return {
 
         -- setting a mapping to false will disable it
         -- ["<C-q>"] = false,
+        ["<M-]>"] = { function() require("smart-splits").resize_up() end, desc = "Resize split up" },
+        ["<M-[>"] = { function() require("smart-splits").resize_down() end, desc = "Resize split down" },
+        ["<M-;>"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" },
+        ["<M-'>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" },
+
         ["<Leader>/"] = false,
         ["<F7>"] = false, --已被polish.lua覆盖,用于编译运行
         ["<C-'>"] = false,
@@ -87,7 +94,7 @@ return {
         -- ["<Leader>fs"] = { function() require("resession").load() end, desc = "Load a session" },
         -- ["<Leader>ld"] = false,
         -- ["<Leader>lD"] = false,
-        ["<C-\\>"] = { '<Cmd>execute v:count . "ToggleTerm"<CR>', desc = "Toggle terminal" },
+        ["<C-\\>"] = { "<Cmd>ToggleTerm direction=float<CR>", desc = "Toggle terminal" },
         -- ["<Leader>fd"] = { function() require("telescope.builtin").diagnostics() end, desc = "Search diagnostics" },
       },
 
@@ -97,7 +104,7 @@ return {
       },
 
       i = {
-        ["<C-\\>"] = { "<Esc><Cmd>ToggleTerm<CR>", desc = "Toggle terminl" },
+        ["<C-\\>"] = { "<Esc><Cmd>ToggleTerm direction=float<CR>", desc = "Toggle terminl" },
         ["<C-'>"] = false,
       },
     },

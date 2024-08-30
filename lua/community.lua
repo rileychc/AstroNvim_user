@@ -17,7 +17,7 @@ return {
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.java" },
   { import = "astrocommunity.pack.full-dadbod" },
-  -- { import = "astrocommunity.media.image-nvim" },
+  { import = "astrocommunity.media.image-nvim" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.code-runner.overseer-nvim" },

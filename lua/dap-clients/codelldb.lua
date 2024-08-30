@@ -12,8 +12,6 @@ return function()
     },
   }
 
-  -- if string.find(current_directory, "/Users/riley/Project") then
-  -- else
   dap.configurations.cpp = {
     {
       type = "codelldb",
@@ -31,8 +29,4 @@ return function()
 
   dap.configurations.c = dap.configurations.cpp
   dap.configurations.rust = dap.configurations.cpp
-
-  require "dap-clients.cppdbg"
-  require "dap-clients.lldb"
-  require "dap-clients.gdb"
 end
