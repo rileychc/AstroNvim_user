@@ -1,0 +1,83 @@
+local dap = require "dap"
+
+require("dap").adapters.gdb = {
+  type = "executable",
+  -- command = "gdb",
+  command = "x86_64-elf-gdb",
+  -- args = { "-enable-pretty-printing", "-gdb-set disassembly-flavor intel", "-gdb-set arch i8086" },
+}
+
+-- dap.configurations.asm = {
+--   {
+--     name = "Assembly (gdb)",
+--     type = "gdb",
+--     request = "launch",
+--     program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") end,
+--     -- program = function() return vim.fn.getcwd() .. "/os.elf" end,
+--     -- program = vim.fn.getcwd() .. "/os.elf",
+--     -- preLaunchTask = "启动qemu",
+--     cwd = "${workspaceFolder}",
+--     stopAtEntry = true,
+--     externalConsole = false,
+--     MIMode = "gdb",
+--     miDebuggerServerAddress = "127.0.0.1:1234",
+--     targetArchitecture = "x86",
+--     stopAtConnect = true,
+--     setupCommands = {
+--       {
+--         description = "为 gdb 启用整齐打印",
+--         text = "-enable-pretty-printing",
+--         ignoreFailures = true,
+--       },
+--       {
+--         description = "将反汇编风格设置为 Intel",
+--         text = "-gdb-set disassembly-flavor intel",
+--         ignoreFailures = true,
+--       },
+--
+--       --                 // 设置体系结构: i8086，方便以16位方式进行反汇编
+--       {
+--         description = "设置体系结构",
+--         text = "-gdb-set arch i8086",
+--         ignoreFailures = true,
+--       },
+--     },
+--     --            // gdb连接后的设置
+--     postRemoteConnectCommands = {
+--       {
+--         description = "运行至0x7c00",
+--         text = "-exec-until *0x7c00",
+--         ignoreFailures = false,
+--       },
+--     },
+--   },
+-- }
+-- dap.configurations.c = {
+--   {
+--     name = "Launch",
+--     type = "gdb",
+--     request = "launch",
+--     program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") end,
+--     cwd = "${workspaceFolder}",
+--     stopAtBeginningOfMainSubprogram = false,
+--   },
+--   {
+--     name = "Select and attach to process",
+--     type = "gdb",
+--     request = "attach",
+--     program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") end,
+--     pid = function()
+--       local name = vim.fn.input "Executable name (filter): "
+--       return require("dap.utils").pick_process { filter = name }
+--     end,
+--     cwd = "${workspaceFolder}",
+--   },
+--   {
+--     name = "Attach to gdbserver :1234",
+--     type = "gdb",
+--     request = "attach",
+--     target = "localhost:1234",
+--     program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") end,
+--     cwd = "${workspaceFolder}",
+--   },
+-- }
