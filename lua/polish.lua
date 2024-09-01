@@ -1,6 +1,7 @@
 -- This will run last in the setup process and is a good place to configure
 -- things like custom filetypes. This just pure lua so anything that doesn't
 -- fit in the normal config locations above can go here
+
 local autocmd = {}
 function autocmd.nvim_create_augroups(definitions)
   for group_name, definition in pairs(definitions) do

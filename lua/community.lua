@@ -10,7 +10,7 @@ return {
   { import = "astrocommunity.utility.neodim" }, --nvim v0.10.0
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.project.project-nvim" },
-  { import = "astrocommunity.project.nvim-spectre" },
+  { import = "astrocommunity.search.nvim-spectre" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.python" },
